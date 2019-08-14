@@ -7,7 +7,7 @@ export function buyItem(item) {
   }  
 } 
 
-export function removeFunctionality(item) {
+export function removeFeature(item) {
     return {
         type : "REMOVE" ,
         payload: item

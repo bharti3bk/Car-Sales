@@ -18,15 +18,16 @@ const initialState  = {
 
 function reducer(state , action){
    switch(action.type){
-       case "" :
+       case "BUY_ITEM" :
            return {
-
+               ...state,
+              itemsTitlle : action.payload
            } 
            break;
 
-        case "" :
+        case "REMOVE_FEATURE" :
             return{
-
+              
             }
             break; 
 

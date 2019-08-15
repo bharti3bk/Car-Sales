@@ -13,27 +13,23 @@ const initialState  = {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
-} 
+} ;
 
-
-function reducer(state , action){
+export function reducer(state = initialState , action) {
    switch(action.type){
-       case "BUY_ITEM" :
+       case "ADD" :
            return {
                ...state,
-              itemsTitlle : action.payload
+              additionalPrice : state.additionalPrice + action.payload.price,
+              car: { ...state.car, features: [...state.car.features, action.payload]}
            } 
-           break;
-
-        case "REMOVE_FEATURE" :
-            return{
-              
+        case "REMOVE" :
+            return {
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: {...state.car, features: state.car.features.filter(f => f.id != action.payload.id)}
             }
-            break; 
-
         default : 
         return state;
    }
 } 
-
-export default reducer;
